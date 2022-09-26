@@ -1,5 +1,6 @@
 export class FeedModel {
-    _id: number;
-    test: string;
+    id: number;
+    text: string;
     imageUrl: string;
+    description: string;
 }
