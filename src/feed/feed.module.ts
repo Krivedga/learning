@@ -1,5 +1,6 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
+import { Description, DescriptionScheme } from 'src/schemas/description.scheme';
 import { Feed, FeedScheme } from 'src/schemas/feed.scheme';
 import { Like, LikeScheme } from 'src/schemas/like.scheme';
 import { FeedController } from './feed.controller';
@@ -9,6 +10,7 @@ import { FeedService } from './feed.service';
   imports: [
     MongooseModule.forFeature([{ name: Like.name, schema: LikeScheme }]),
     MongooseModule.forFeature([{ name: Feed.name, schema: FeedScheme }]),
+    MongooseModule.forFeature([{ name: Description.name, schema: DescriptionScheme }]),
 ],
   controllers: [FeedController],
   providers: [FeedService]

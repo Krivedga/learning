@@ -1,4 +1,7 @@
-import { Body, Controller, Param, Post, Get } from '@nestjs/common';
+import { Body, Controller, Param, Post, Get, Patch, Delete  } from '@nestjs/common';
+import { RemoveDescriptionModel } from 'src/schemas/models/description-delete.model';
+import { DescriptionUpdateModel } from 'src/schemas/models/description-update.model';
+import { DescriptionModel } from 'src/schemas/models/description.model';
 import { LikeModel } from 'src/schemas/models/like.model';
 import { FeedModel } from './feed.model';
 import { FeedService } from './feed.service';
@@ -34,6 +37,19 @@ export class FeedController {
     @Get('like')
     async like(@Body() dto: LikeModel){
         return this.feedService.setLike(dto);
+    }
+
+    @Post('description')
+    async description(@Body() dto: DescriptionModel){
+        return this.feedService.setDescription(dto);
+    }
+    @Patch('description')
+    async descriptionUpdate(@Body() dto: DescriptionUpdateModel){
+        return this.feedService.updateDescription(dto);
+    }
+    @Delete('description')
+    async descriptionDelete(@Body() dto: RemoveDescriptionModel){
+        return this.feedService.removeDescription(dto);
     }
 
 }

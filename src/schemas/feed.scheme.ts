@@ -1,6 +1,5 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document } from 'mongoose';
-import { LikeModel } from './models/like.model';
 
 export type FeedDocument = Feed & Document;
 
