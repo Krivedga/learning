@@ -1,6 +1,5 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document } from 'mongoose';
-import { LikeModel } from './models/like.model';
 
 export type LikeDocument = Like & Document;
 
@@ -9,12 +8,13 @@ export type LikeDocument = Like & Document;
 export class Like {
 
     @Prop()
-    id: number;
+    feedId: string;
 
     @Prop()
     amount: number;
 
-    
+    @Prop()
+    usersId: string[];
 }
 
 export const LikeScheme = SchemaFactory.createForClass(Like);

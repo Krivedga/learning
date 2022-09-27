@@ -1,4 +1,5 @@
 import { Body, Controller, Param, Post, Get } from '@nestjs/common';
+import { LikeModel } from 'src/schemas/models/like.model';
 import { FeedModel } from './feed.model';
 import { FeedService } from './feed.service';
 
@@ -12,9 +13,10 @@ export class FeedController {
     @Post('create')
     async create(@Body() dto: Omit<FeedModel,'id'>){
 
-        this.feedService.create(dto);
-
-        return `create ${dto.text}`;
+        
+        const createdFeed = this.feedService.create(dto);
+        
+        return createdFeed
     }
 
     @Get('get/:id')
@@ -30,8 +32,8 @@ export class FeedController {
     }
 
     @Get('like')
-    async like(@Param('value') value: boolean, @Param('feedID') feedID: string){
-        this.feedService.setLike(feedID, value);
+    async like(@Body() dto: LikeModel){
+        return this.feedService.setLike(dto);
     }
 
 }

@@ -20,8 +20,7 @@ export class Feed {
     @Prop()
     description: string;
 
-    @Prop()
-    likes: LikeModel;
+
     
 }
 

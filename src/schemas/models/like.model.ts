@@ -1,4 +1,4 @@
 export class LikeModel {
-    userIDs: string[];
-    amount: number;
+    userId: string;
+    feedId: string;
 }
