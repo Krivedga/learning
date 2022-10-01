@@ -9,6 +9,7 @@ import { CompanyModule } from './company/company.module';
 import { VacancyModule } from './vacancy/vacancy.module';
 import { AuthModule } from './auth/auth.module';
 import { EmailService } from './email/email/email.service';
+import { StartupModule } from './startup/startup.module';
 
 @Module({
   imports: [
@@ -19,6 +20,7 @@ import { EmailService } from './email/email/email.service';
     CompanyModule,
     VacancyModule,
     AuthModule,
+    StartupModule,
   ],
   controllers: [AppController],
   providers: [AppService, EmailService,]
