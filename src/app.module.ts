@@ -1,6 +1,5 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
-import { TypegooseModule } from 'nestjs-typegoose';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { FeedModule } from './feed/feed.module';
@@ -8,6 +7,8 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { StatsModule } from './stats/stats.module';
 import { CompanyModule } from './company/company.module';
 import { VacancyModule } from './vacancy/vacancy.module';
+import { AuthModule } from './auth/auth.module';
+import { EmailService } from './email/email/email.service';
 
 @Module({
   imports: [
@@ -16,9 +17,10 @@ import { VacancyModule } from './vacancy/vacancy.module';
     FeedModule,
     StatsModule,
     CompanyModule,
-    VacancyModule
+    VacancyModule,
+    AuthModule,
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, EmailService,]
 })
 export class AppModule {}

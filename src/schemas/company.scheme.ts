@@ -1,5 +1,6 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document } from 'mongoose';
+import { CompanyTypeEnum } from 'src/company/enums/company-type.enum';
 
 export type CompanyDocument = Company & Document;
 
@@ -20,7 +21,7 @@ export class Company {
     contactInfo: string;
 
     @Prop()
-    type: string;
+    type: CompanyTypeEnum;
     
 }
 
